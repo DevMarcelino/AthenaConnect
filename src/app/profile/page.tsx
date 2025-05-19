@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Separator } from '@/components/ui/separator';
+import { Badge } from '@/components/ui/badge';
 import { Instagram, Linkedin, Twitter, Globe, Edit3, CircleUserRound, Briefcase, MapPin } from 'lucide-react';
 import Image from 'next/image';
 
