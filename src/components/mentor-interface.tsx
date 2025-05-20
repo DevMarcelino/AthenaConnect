@@ -18,8 +18,8 @@ export default function MentorInterface() {
     event.preventDefault();
     if (!query.trim()) {
       toast({
-        title: "Query is empty",
-        description: "Please enter your question for the AI Mentor.",
+        title: "Consulta vazia",
+        description: "Por favor, insira sua pergunta para a Mentora IA.",
         variant: "destructive",
       });
       return;
@@ -33,10 +33,10 @@ export default function MentorInterface() {
       const result = await aiMentorQuery(input);
       setResponse(result);
     } catch (error) {
-      console.error('AI Mentor Query Error:', error);
+      console.error('Erro na Consulta à Mentora IA:', error);
       toast({
-        title: "Error",
-        description: "Failed to get a response from the AI Mentor. Please try again.",
+        title: "Erro",
+        description: "Falha ao obter uma resposta da Mentora IA. Por favor, tente novamente.",
         variant: "destructive",
       });
     } finally {
@@ -49,16 +49,16 @@ export default function MentorInterface() {
       <CardHeader>
         <CardTitle className="flex items-center text-xl">
           <Sparkles className="mr-2 h-5 w-5 text-accent" />
-          Ask Athena
+          Pergunte à Athena
         </CardTitle>
         <CardDescription>
-          Pose your business questions or challenges, and let our AI mentor provide guidance.
+          Faça suas perguntas ou desafios de negócios e deixe nossa mentora IA fornecer orientação.
         </CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
           <Textarea
-            placeholder="E.g., 'What are effective marketing strategies for a new online boutique?'"
+            placeholder="Ex: 'Quais são as estratégias de marketing eficazes para uma nova boutique online?'"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             rows={4}
@@ -71,14 +71,14 @@ export default function MentorInterface() {
             ) : (
               <Send className="mr-2 h-4 w-4" />
             )}
-            Get Advice
+            Obter Conselho
           </Button>
         </form>
       </CardContent>
       {response && (
         <CardFooter className="mt-6 border-t pt-6">
           <div className="space-y-3">
-            <h3 className="text-lg font-semibold text-primary">Athena&apos;s Wisdom:</h3>
+            <h3 className="text-lg font-semibold text-primary">Sabedoria de Athena:</h3>
             <div className="prose prose-sm max-w-none rounded-md border bg-muted/30 p-4 text-foreground">
               <p>{response.answer}</p>
             </div>

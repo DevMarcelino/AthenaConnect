@@ -1,24 +1,23 @@
-// 'use server'
 'use server';
 
 /**
- * @fileOverview AI-powered mentor to answer user questions about business strategies.
+ * @fileOverview Mentora de IA para responder a perguntas de usuários sobre estratégias de negócios.
  *
- * - aiMentorQuery - A function that handles user queries and returns concise answers.
- * - AIMentorQueryInput - The input type for the aiMentorQuery function.
- * - AIMentorQueryOutput - The return type for the aiMentorQuery function.
+ * - aiMentorQuery - Uma função que lida com as consultas do usuário e retorna respostas concisas.
+ * - AIMentorQueryInput - O tipo de entrada para a função aiMentorQuery.
+ * - AIMentorQueryOutput - O tipo de retorno para a função aiMentorQuery.
  */
 
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 
 const AIMentorQueryInputSchema = z.object({
-  query: z.string().describe('The user query about business strategies.'),
+  query: z.string().describe('A consulta do usuário sobre estratégias de negócios.'),
 });
 export type AIMentorQueryInput = z.infer<typeof AIMentorQueryInputSchema>;
 
 const AIMentorQueryOutputSchema = z.object({
-  answer: z.string().describe('The concise answer to the user query.'),
+  answer: z.string().describe('A resposta concisa para a consulta do usuário.'),
 });
 export type AIMentorQueryOutput = z.infer<typeof AIMentorQueryOutputSchema>;
 
@@ -30,7 +29,7 @@ const prompt = ai.definePrompt({
   name: 'aiMentorQueryPrompt',
   input: {schema: AIMentorQueryInputSchema},
   output: {schema: AIMentorQueryOutputSchema},
-  prompt: `You are an AI mentor for female entrepreneurs. Provide helpful and concise answers to the following question: {{{query}}}`,
+  prompt: `Você é uma mentora de IA para empreendedoras. Forneça respostas úteis e concisas para a seguinte pergunta: {{{query}}}`,
 });
 
 const aiMentorQueryFlow = ai.defineFlow(

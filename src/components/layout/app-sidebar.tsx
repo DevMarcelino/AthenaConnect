@@ -25,11 +25,11 @@ import {
 import { cn } from '@/lib/utils';
 
 const mainNavItems = [
-  { href: '/', label: 'Events', icon: LayoutGrid },
+  { href: '/', label: 'Eventos', icon: LayoutGrid },
   { href: '/marketplace', label: 'Marketplace', icon: ShoppingBag },
-  { href: '/mentor', label: 'AI Mentor', icon: Brain },
-  { href: '/messages', label: 'Messages', icon: MessageSquareText },
-  { href: '/profile', label: 'Profile', icon: CircleUserRound },
+  { href: '/mentor', label: 'Mentora IA', icon: Brain },
+  { href: '/messages', label: 'Mensagens', icon: MessageSquareText },
+  { href: '/profile', label: 'Perfil', icon: CircleUserRound },
 ];
 
 export function AppSidebar() {
@@ -78,12 +78,12 @@ export function AppSidebar() {
              <Link href="/settings" legacyBehavior passHref>
                 <SidebarMenuButton 
                   asChild 
-                  tooltip={{ children: "Settings", side: 'right', className: "bg-sidebar-accent text-sidebar-accent-foreground" }}
+                  tooltip={{ children: "Configurações", side: 'right', className: "bg-sidebar-accent text-sidebar-accent-foreground" }}
                   className="justify-start hover:bg-sidebar-accent/80 hover:text-sidebar-accent-foreground"
                 >
                   <a>
                     <Settings className="h-5 w-5" />
-                    <span className="group-data-[collapsible=icon]:hidden">Settings</span>
+                    <span className="group-data-[collapsible=icon]:hidden">Configurações</span>
                   </a>
                 </SidebarMenuButton>
               </Link>
@@ -91,7 +91,7 @@ export function AppSidebar() {
           <SidebarMenuItem>
             <Button variant="ghost" className="w-full justify-start group-data-[collapsible=icon]:justify-center text-sidebar-foreground hover:bg-sidebar-accent/80 hover:text-sidebar-accent-foreground h-10 p-2">
               <LogOut className="h-5 w-5" />
-              <span className="group-data-[collapsible=icon]:hidden ml-2">Logout</span>
+              <span className="group-data-[collapsible=icon]:hidden ml-2">Sair</span>
             </Button>
           </SidebarMenuItem>
         </SidebarMenu>

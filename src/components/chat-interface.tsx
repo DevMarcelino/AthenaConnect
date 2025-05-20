@@ -26,18 +26,18 @@ interface Message {
 }
 
 const mockUsers: User[] = [
-  { id: '1', name: 'Sophia Miller', avatarUrl: 'https://placehold.co/40x40.png?text=SM', lastMessage: 'Hey, how are you?', lastMessageTime: '10:30 AM', online: true },
-  { id: '2', name: 'Isabella Chen', avatarUrl: 'https://placehold.co/40x40.png?text=IC', lastMessage: 'Let\'s catch up soon!', lastMessageTime: 'Yesterday', online: false },
-  { id: '3', name: 'Olivia Garcia', avatarUrl: 'https://placehold.co/40x40.png?text=OG', lastMessage: 'Great idea for the event!', lastMessageTime: 'Mon', online: true },
+  { id: '1', name: 'Sophia Miller', avatarUrl: 'https://placehold.co/40x40.png?text=SM', lastMessage: 'Oi, como você está?', lastMessageTime: '10:30', online: true },
+  { id: '2', name: 'Isabella Chen', avatarUrl: 'https://placehold.co/40x40.png?text=IC', lastMessage: 'Vamos colocar o papo em dia em breve!', lastMessageTime: 'Ontem', online: false },
+  { id: '3', name: 'Olivia Garcia', avatarUrl: 'https://placehold.co/40x40.png?text=OG', lastMessage: 'Ótima ideia para o evento!', lastMessageTime: 'Seg', online: true },
 ];
 
 const mockMessages: { [userId: string]: Message[] } = {
   '1': [
-    { id: 'm1', senderId: '1', text: 'Hey, how are you?', timestamp: '10:30 AM', isOwn: false },
-    { id: 'm2', senderId: 'currentUser', text: 'I\'m good, thanks! You?', timestamp: '10:31 AM', isOwn: true },
+    { id: 'm1', senderId: '1', text: 'Oi, como você está?', timestamp: '10:30', isOwn: false },
+    { id: 'm2', senderId: 'currentUser', text: 'Estou bem, obrigada! E você?', timestamp: '10:31', isOwn: true },
   ],
   '2': [
-    { id: 'm3', senderId: '2', text: 'Let\'s catch up soon!', timestamp: 'Yesterday', isOwn: false },
+    { id: 'm3', senderId: '2', text: 'Vamos colocar o papo em dia em breve!', timestamp: 'Ontem', isOwn: false },
   ],
   '3': [],
 };
@@ -67,7 +67,7 @@ export default function ChatInterface() {
         isOwn: true,
       };
       setMessages([...messages, newMsg]);
-      // Update mock last message for the user
+      // Atualiza a última mensagem mock para o usuário
       mockMessages[selectedUser.id] = [...(mockMessages[selectedUser.id] || []), newMsg];
       const userIndex = mockUsers.findIndex(u => u.id === selectedUser.id);
       if (userIndex !== -1) {
@@ -84,13 +84,13 @@ export default function ChatInterface() {
 
   return (
     <div className="flex flex-1 border rounded-lg shadow bg-card overflow-hidden">
-      {/* User List Panel */}
+      {/* Painel de Lista de Usuários */}
       <div className="w-1/3 border-r flex flex-col">
         <div className="p-4 border-b">
           <div className="relative">
             <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input 
-              placeholder="Search contacts..." 
+              placeholder="Buscar contatos..." 
               className="pl-8"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -121,12 +121,12 @@ export default function ChatInterface() {
             </div>
           ))}
           {filteredUsers.length === 0 && (
-            <p className="p-4 text-sm text-muted-foreground text-center">No contacts found.</p>
+            <p className="p-4 text-sm text-muted-foreground text-center">Nenhum contato encontrado.</p>
           )}
         </ScrollArea>
       </div>
 
-      {/* Chat Panel */}
+      {/* Painel de Chat */}
       <div className="w-2/3 flex flex-col">
         {selectedUser ? (
           <>
@@ -143,7 +143,7 @@ export default function ChatInterface() {
                   </p>
                 </div>
               </div>
-              {/* Potentially add call/video call icons here */}
+              {/* Potencialmente adicionar ícones de chamada/videochamada aqui */}
             </div>
             <ScrollArea className="flex-1 p-4 space-y-4">
               {messages.map((msg) => (
@@ -164,7 +164,7 @@ export default function ChatInterface() {
                 </div>
               ))}
                {messages.length === 0 && (
-                  <p className="text-sm text-muted-foreground text-center py-8">No messages yet. Start the conversation!</p>
+                  <p className="text-sm text-muted-foreground text-center py-8">Nenhuma mensagem ainda. Comece a conversa!</p>
                 )}
             </ScrollArea>
             <Separator/>
@@ -173,7 +173,7 @@ export default function ChatInterface() {
                 <Button variant="ghost" size="icon"> <Smile className="h-5 w-5 text-muted-foreground" /></Button>
                 <Button variant="ghost" size="icon"> <Paperclip className="h-5 w-5 text-muted-foreground" /></Button>
                 <Input
-                  placeholder="Type a message..."
+                  placeholder="Digite uma mensagem..."
                   value={newMessage}
                   onChange={(e) => setNewMessage(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
@@ -188,8 +188,8 @@ export default function ChatInterface() {
         ) : (
           <div className="flex-1 flex flex-col items-center justify-center text-center p-4">
             <UserCircle className="h-24 w-24 text-muted-foreground/50 mb-4" />
-            <h3 className="text-xl font-semibold text-muted-foreground">Select a chat</h3>
-            <p className="text-muted-foreground">Choose someone from your contacts to start messaging.</p>
+            <h3 className="text-xl font-semibold text-muted-foreground">Selecione um chat</h3>
+            <p className="text-muted-foreground">Escolha alguém dos seus contatos para começar a conversar.</p>
           </div>
         )}
       </div>

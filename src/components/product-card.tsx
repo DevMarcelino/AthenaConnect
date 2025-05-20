@@ -28,7 +28,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         <div className="relative h-56 w-full">
           <Image
             src={product.imageUrl}
-            alt={product.name}
+            alt={product.name} // Alt text permanece dinâmico, mas o conteúdo de product.name será traduzido na origem
             layout="fill"
             objectFit="cover"
             data-ai-hint={product.imageHint}
@@ -38,7 +38,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       </CardHeader>
       <CardContent className="p-4 flex-grow">
         <CardTitle className="text-lg mb-1 text-primary">{product.name}</CardTitle>
-        <p className="text-sm text-muted-foreground mb-2">Sold by {product.seller}</p>
+        <p className="text-sm text-muted-foreground mb-2">Vendido por {product.seller}</p>
         <div className="flex items-center mb-2">
           {[...Array(5)].map((_, i) => (
             <Star
@@ -46,9 +46,9 @@ export default function ProductCard({ product }: ProductCardProps) {
               className={`h-4 w-4 ${i < Math.floor(product.rating) ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'}`}
             />
           ))}
-          <span className="ml-1 text-xs text-muted-foreground">({product.reviews} reviews)</span>
+          <span className="ml-1 text-xs text-muted-foreground">({product.reviews} avaliações)</span>
         </div>
-        <p className="text-lg font-semibold text-accent">${product.price.toFixed(2)}</p>
+        <p className="text-lg font-semibold text-accent">R${product.price.toFixed(2).replace('.', ',')}</p>
         <div className="flex items-center text-xs text-muted-foreground mt-1">
             <MapPin className="mr-1 h-3 w-3" />
             <span>{product.location}</span>
@@ -56,10 +56,10 @@ export default function ProductCard({ product }: ProductCardProps) {
       </CardContent>
       <CardFooter className="p-4 flex flex-col sm:flex-row gap-2">
         <Button size="sm" className="flex-1 bg-primary hover:bg-primary/90">
-          <ShoppingCart className="mr-2 h-4 w-4" /> Add to Cart
+          <ShoppingCart className="mr-2 h-4 w-4" /> Adicionar ao Carrinho
         </Button>
         <Button variant="outline" size="sm" className="flex-1">
-          <MessageSquare className="mr-2 h-4 w-4" /> Contact Seller
+          <MessageSquare className="mr-2 h-4 w-4" /> Contatar Vendedor
         </Button>
       </CardFooter>
     </Card>
