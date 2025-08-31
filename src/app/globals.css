@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: 48 43% 95%; /* Soft Sand */
+    --foreground: 206 20% 20%; /* Darker Blue-Gray */
+    --card: 0 0% 100%; /* White for cards */
+    --card-foreground: 206 20% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 206 20% 20%;
+    --primary: 206 65% 62%; /* Aegean Blue */
+    --primary-foreground: 0 0% 100%; /* White */
+    --secondary: 206 30% 90%; /* Lighter Aegean Blue */
+    --secondary-foreground: 206 65% 30%; /* Darker Aegean Blue */
+    --muted: 48 20% 88%; /* Muted Soft Sand */
+    --muted-foreground: 48 15% 50%; /* Darker Muted Soft Sand */
+    --accent: 87 36% 63%; /* Olive Green */
+    --accent-foreground: 87 25% 25%; /* Darker Olive Green */
+    --destructive: 0 72% 51%; /* Adjusted destructive to fit theme */
+    --destructive-foreground: 0 0% 98%;
+    --border: 48 20% 85%; /* Slightly darker than muted for borders */
+    --input: 48 20% 88%; /* Same as muted */
+    --ring: 206 65% 62%; /* Aegean Blue for focus rings */
+    --chart-1: 206 65% 62%;
+    --chart-2: 87 36% 63%;
+    --chart-3: 206 40% 50%;
+    --chart-4: 87 25% 50%;
+    --chart-5: 48 30% 70%;
+    --radius: 0.5rem;
+    --sidebar-background: 206 40% 97%; /* Very light Aegean Blue/almost white */
+    --sidebar-foreground: 206 40% 25%; /* Dark Aegean Blue text */
+    --sidebar-primary: 206 65% 62%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 87 36% 70%; /* Lighter Olive Green */
+    --sidebar-accent-foreground: 87 25% 20%; /* Darker Olive Green text */
+    --sidebar-border: 206 30% 88%; /* Light Aegean Blue border */
+    --sidebar-ring: 206 65% 62%;
+  }
+  .dark {
+    --background: 206 15% 10%;
+    --foreground: 48 43% 90%;
+    --card: 206 15% 15%;
+    --card-foreground: 48 43% 90%;
+    --popover: 206 15% 10%;
+    --popover-foreground: 48 43% 90%;
+    --primary: 206 65% 62%;
+    --primary-foreground: 206 20% 15%;
+    --secondary: 206 30% 25%;
+    --secondary-foreground: 206 65% 80%;
+    --muted: 206 15% 20%;
+    --muted-foreground: 206 20% 60%;
+    --accent: 87 36% 50%;
+    --accent-foreground: 87 40% 90%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 206 15% 25%;
+    --input: 206 15% 20%;
+    --ring: 206 65% 70%;
+    --chart-1: 206 65% 62%;
+    --chart-2: 87 36% 50%;
+    --chart-3: 206 50% 55%;
+    --chart-4: 87 30% 55%;
+    --chart-5: 48 35% 65%;
+    --sidebar-background: 206 20% 12%;
+    --sidebar-foreground: 206 30% 80%;
+    --sidebar-primary: 206 65% 62%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 87 36% 40%;
+    --sidebar-accent-foreground: 87 40% 85%;
+    --sidebar-border: 206 20% 20%;
+    --sidebar-ring: 206 65% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
