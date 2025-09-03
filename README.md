@@ -1,5 +1,9 @@
 # AthenaConnect
 
-Este é um projeto inicial.
+Exemplo de plataforma para network e divulgaçao de eventos internacionais
+
+# Tecnologias Utilizadas
+
+TypeScript
 
 
